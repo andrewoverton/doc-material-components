@@ -24,8 +24,7 @@ There are four types of buttons:
 
 ## Using buttons
 
-
-### Install `MDCButtons`
+### Install `MDCButton`
 
 Before using the `MDCButtons` API to implement its types you must install `MDCButtons`. In your source files import the component, and then apply your theme:
 1. Install `MDCButtons`

@@ -27,15 +27,17 @@ There are four types of buttons:
 ## Using buttons
 
 
-### Install `MDCButtons`
+### Install `MDCButton`
 
 <details><summary><b>Expand for installation instructions for <code>MDCButtons</code></b></summary>
+
+<br>
 
 Before using the `MDCButtons` API to implement its types you must install `MCDButtons`. In your source files import the component, and then apply your theme:
 1. Install `MDCButtons`
    * Use CocoaPods to install `MDCButtons`
      1. Add the following line to your `Podfile`:
-       ```java
+       ```ruby
       pod MaterialComponents/Buttons
        ```
      1. Run the installer:
