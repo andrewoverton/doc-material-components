@@ -36,11 +36,11 @@ There are four types of buttons:
 `MDCButton` is used to implement all four Material Buttons. In order to use `MCDButton`, do the following:
 
 1. Install `MDCButtons` with Cocoapods
-    1. Add the following line to your `Podfile`:
+    Add the following line to your `Podfile`:
     ```ruby
     pod MaterialComponents/Buttons
     ```
-    1. Run the installer:
+    Run the installer:
     ```bash
     pod install
     ```
