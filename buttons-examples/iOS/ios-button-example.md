@@ -55,113 +55,151 @@ There are four types of buttons:
 ```swift
 import MaterialComponents.MaterialButtons
 import MaterialComponents.MaterialButtons_Theming
-...
+
 let button = MDCButton()
 ```
 #### Objective-C
 ```objc
 #import "MaterialButtons.h"
 #import <MaterialComponents/MaterialButtons+Theming.h>
-...
+
 MDCButton *button = [[MDCButton alloc] init];
 ```
-<!--</div>-->
-
-    For our examples, we used the following theming values:
-
-<!--<div class="material-code-render" markdown="1">-->
-     **Swift**
-     ```swift
-     let MyMaterialTheme = MDCContainerScheme()
-     ```
-     **Objective-C**
-     ```objc
-     MDCContainerScheme *MyMaterialTheme = [
-     ```
-<!--</div>-->
-
 
 </details>
 
 
-### Making buttons accessible
- 
-To help make your buttons usable to as many users as possible, apply the following:
+### Making Buttons accessible
 
-* Set an appropriate [`accessibilityLabel`](https://developer.apple.com/documentation/uikit/uiaccessibilityelement/1619577-accessibilitylabel) value if your button does not have a title or only has an icon:
-<!--<div class="material-code-render" markdown="1">-->
-    **Objective-C**
-    ```objc
-    button.accessibilityLabel = @"Create";
-    ```
-    **Swift**
-    ```swift
-    button.accessibilityLabel = "Create"
-    ```
-<!--</div>-->
+To help ensure your buttons are accessible to as many users as possible, please
+be sure to review the following recommendations:
 
-* Set the minimum [visual height to
-36 and miniumum visual width to 64](https://material.io/design/components/buttons.html#specs)
-<!--<div class="material-code-render" markdown="1">-->
-    **Objective-C**
+#### Set `-accessibilityLabel`
 
-    ```objc
-    button.minimumSize = CGSizeMake(64, 36);
-    ```
+Set an appropriate
+[`accessibilityLabel`](https://developer.apple.com/documentation/uikit/uiaccessibilityelement/1619577-accessibilitylabel)
+value if your button does not have a title. This is often the case with Floating
+Action Button instances which typically only have an icon.
 
-    **Swift**
+##### Objective-C
 
-    ```swift
-    button.minimumSize = CGSize(width: 64, height: 48)
-    ```
-<!--</div>-->
+```objc
+button.accessibilityLabel = @"Create";
+```
 
+##### Swift
 
-* Set the [touch areas to at least 44 points high and 44
+```swift
+button.accessibilityLabel = "Create"
+```
+
+#### Minimum touch size
+
+Make sure that your buttons have a minimum touch area. The Material spec
+for buttons calls for buttons that have a [visual height of
+36](https://material.io/design/components/buttons.html#specs)
+and that [touch areas should be at least 44 points high and 44
 wide](https://material.io/design/layout/spacing-methods.html#touch-click-targets).
-    To minimize a button's visual size while allowing for larger [touchable areas](https://material.io/design/layout/spacing-methods.html#touch-click-targets), set the `hitAreaInsets` to a negative value. Maintain sufficient distance between the button touch targets. For more see the [Touch and click
+
+#### Set the touch size
+
+To keep a button's visual sizes small with larger touchable areas, set the
+`hitAreaInsets` to a negative value. Be careful to maintain sufficient distance
+between the button touch targets. This will allow your button to have [a large
+enough touch
+target](https://material.io/design/layout/spacing-methods.html#touch-click-targets)
+while maintaining the desired visual appearance. For more see the [Touch and click
 targets](https://material.io/design/layout/spacing-methods.html#touch-click-targets)
 in the spec.
+
+##### Objective-C
+
+```objc
+CGFloat verticalInset = MIN(0, -(48 - CGRectGetHeight(button.bounds)) / 2);
+CGFloat horizontalInset = MIN(0, -(48 - CGRectGetWidth(button.bounds)) / 2);
+button.hitAreaInsets = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset);
+```
+
+##### Swift
+
+```swift
+let buttonVerticalInset =
+min(0, -(kMinimumAccessibleButtonSize.height - button.bounds.height) / 2);
+let buttonHorizontalInset =
+min(0, -(kMinimumAccessibleButtonSize.width - button.bounds.width) / 2);
+button.hitAreaInsets =
+UIEdgeInsetsMake(buttonVerticalInset, buttonHorizontalInset,
+buttonVerticalInset, buttonHorizontalInset);
+```
+
+#### Set the minimum visual size of the button
+
+Set your buttons to have a minimum size. [Material Buttons
+guidelines](https://material.io/design/components/buttons.html#specs)
+typically recommend [a minimum height of 36 points and a minimum width of 64
+points](https://material.io/design/components/buttons.html#specs).
+
+##### Objective-C
+
+```objc
+button.minimumSize = CGSizeMake(64, 36);
+```
+
+##### Swift
+
+```swift
+button.minimumSize = CGSize(width: 64, height: 48)
+```
+
+#### Exceptions
+
+However there are
+[some](https://material.io/design/components/buttons.html#toggle-button) clear
+[exceptions](https://material.io/design/components/app-bars-bottom.html#specs)
+for these rules. Please adjust your buttons sizes accordingly.
+
+#### Using `accessibilityHint`
+
+Apple rarely recommends using the `accessibilityHint` because the label should
+already be clear enough to indicate what will happen. Before you consider
+setting an `-accessibilityHint` consider if you need it or if the rest of your
+UI could be adjusted to make it more contextually clear.
+
+A well-crafted, thoughtful user interface can remove the need for
+`accessibilityHint` in most situations. Examples for a selection dialog to
+choose one or more days of the week for a repeating calendar event:
+
+- (Good) The dialog includes a header above the list of days reading, "Event
+repeats weekly on the following day(s)." The list items do not need
+`accessibilityHint` values.
+- (Bad) The dialog has no header above the list of days. Each list item
+(representing a day of the week) has the `accessibilityHint` value, "Toggles
+this day."
+
+
+## Text button
+<!-- Extracted from docs/text-button.md -->
+
+<img src="docs/assets/text.gif" alt="An animation showing a Material Design text button." width="128">
+
+[Text buttons](https://material.io/components/buttons/#text-button) are typically used for less-pronounced actions, including those located in dialogs and cards. In cards, text buttons help maintain an emphasis on card content.
+
+### Text button example
+
+Text buttons are implemented by [MDCButton](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html). To use a text button use the text button theming method on the MDCButton theming extension. For more information on theming extensions see the [Theming section](#theming). 
+
 <!--<div class="material-code-render" markdown="1">-->
-    **Objective C**
-    ```objc
-    CGFloat verticalInset = MIN(0, -(48 - CGRectGetHeight(button.bounds)) / 2);
-    CGFloat horizontalInset = MIN(0, -(48 - CGRectGetWidth(button.bounds)) / 2);
-    button.hitAreaInsets = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset);
-    ```
+#### Swift
+```swift
+button.applyTextTheme(withScheme: containerScheme)
+```
 
-    **Swift**
-    ```swift
-    let buttonVerticalInset =
-    min(0, -(kMinimumAccessibleButtonSize.height - button.bounds.height) / 2);
-    let buttonHorizontalInset =
-    min(0, -(kMinimumAccessibleButtonSize.width - button.bounds.width) / 2);
-    button.hitAreaInsets =
-    UIEdgeInsetsMake(buttonVerticalInset, buttonHorizontalInset,
-    buttonVerticalInset, buttonHorizontalInset);
-    ```
+#### Objective-C
+
+```objc
+[self.button applyTextThemeWithScheme:self.containerScheme];
+```
 <!--</div>-->
-
-    _**Note** There are [some](https://material.io/design/components/buttons.html#toggle-button) clear [exceptions](https://material.io/design/components/app-bars-bottom.html#specs) for these rules. Please adjust your buttons sizes accordingly._
-
-* **Optional** Set an appropriate `accessibilityHint`
-
-    Apple rarely recommends using the `accessibilityHint` because the label should
-    already be clear enough to indicate what will happen. Before you consider
-    setting an `-accessibilityHint` consider if you need it or if the rest of your
-    UI could be adjusted to make it more contextually clear.
-
-    A well-crafted, thoughtful user interface can remove the need for
-   `accessibilityHint` in most situations. Examples for a selection dialog to
-    choose one or more days of the week for a repeating calendar event:
-
-    *   (Good) The dialog includes a header above the list of days reading, "Event
-    repeats weekly on the following day(s)." The list items do not need
-    `accessibilityHint` values.
-    *   (Bad) The dialog has no header above the list of days. Each list item
-    (representing a day of the week) has the `accessibilityHint` value, "Toggles
-    this day."
-
 
 ## Text button
 
@@ -527,31 +565,34 @@ Icons can be used as toggle buttons when they allow selection, or deselection, o
 
 The iOS icon toggle button is only available for use with the iOS [card](../Cards) component. Go to the card article for an [example](../Cards/#card-example-with-icon-buttons).
 
-## Theming buttons
+## Theming
 
-Buttons support [Material Theming](https://material.io/components/buttons/#theming) and can be customized in terms of color, typography and shape.
+<!-- Extracted from docs/theming.md -->
 
-### Button theming example
+You can theme an MDCButton to match a
+[Material Design button style](https://material.io/design/components/buttons.html) using theming
+extensions. [Learn more about theming extensions](../../docs/theming.md).
 
-API and source code:
+### How to theme an MDCButton
 
-* `MaterialButton` (a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton))
-    * [Class description](https://)
-    * [GitHub source](https://github.com/material-components/)
-    
-The following example shows text, outlined and contained button types with Material Theming.
+To make use of the theming methods shown in the examples above import the theming extensions by doing the following:
 
-!["Button theming examples for iOS with pink and black buttons and cut corners."](assets/button-theming.svg)
+<!--<div class="material-code-render" markdown="1">-->
+#### Swift
+```swift
+import MaterialComponents.MaterialButtons
+import MaterialComponents.MaterialButtons_Theming
 
-<details>
-<summary><b>Implementing button theming</b></summary>
-<br>
-
-[Shrine theme](https://material.io/design/material-studies/shrine.html)
-```
-Include source code implementing text, outlined, and contained buttons using "Shrine" theme.
-
-Upload a screenshot of the render and update the image.
+let button = MDCButton()
 ```
 
-</details>
+#### Objective-C
+
+```objc
+#import <MaterialComponents/MaterialButtons.h>
+#import <MaterialComponentsBeta/MaterialButtons+Theming.h>
+
+MDCButton *button = [[MDCButton alloc] init];
+```
+<!--</div>-->
+
