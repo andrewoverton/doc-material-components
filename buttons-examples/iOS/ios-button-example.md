@@ -198,7 +198,6 @@ button.applyTextTheme(withScheme: containerScheme)
 ```
 
 #### Objective-C
-
 ```objc
 [self.button applyTextThemeWithScheme:self.containerScheme];
 ```
@@ -213,10 +212,12 @@ To add an icon to an MDCButton styled as a text button use the familiar UIButton
 !["iOS text button with purple text 'Text button' and '+' icon over a white background."](assets/text-button-icon.svg)
 
 <!--<div class="material-code-render" markdown="1">-->
+#### Swift
 ```swift
 button.setImage(image, for: .normal)
 ```
 
+#### Objective-C
 ```objc
 [button setImage:image forState: UIControlStateNormal];
 ```
@@ -237,7 +238,7 @@ A text button has a text label, a transparent container and an optional icon.
 _**Note** A container in iOS refers to a set of components with an applied Material Theme. A container with respect to anatomy refers to the visible bounds of a component._
 
 <details>
-<summary><b>Text label</b> and <b>Icon</b> attributes</summary>
+<summary><b>Text label</b> attributes</summary>
 <br>
 
 |  | Attribute | Related method(s) | Default value |
@@ -361,25 +362,29 @@ A text button has a text label, a transparent container and an optional icon.
 1. Icon
 
 
-_**Note** A container in iOS refers to a set of components with an applied Material Theme. A container with respect to anatomy refers to the visible bounds of a component._
+#### Text label attributes
 
-<details>
-<summary><b>Text label</b> and <b>Icon</b> attributes</summary>
-<br>
+&nbsp;         | Attribute                | Related method(s)                 | Default value
+-------------- | ------------------------ | --------------------------------- | -------------
+**Text label** | `titleLabel` | `setTitle:forState:`<br/>`titleForState:` | `nil`
+**Color**      | `titleLabel.textColor` | `setTitleColor:forState:`<br/>`titleColorForState:` | `nil`
+**Typography** | `titleLabel.font` | `setFont:` and `font` on `titleLabel` | `button`
 
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Text label** | <a href="https://developer.apple.com/documentation/uikit/uibutton/1623992-titlelabel"><code>titleLabel</code></a> |  | |
-| |  | <a href="https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html#/c:objc(cs)MDCButton(py)uppercaseTitle"><code>uppercaseTitle</code></a> | YES |
-| |  | <a href="https://developer.apple.com/documentation/uikit/uibutton/1623993-settitlecolor"><code>setTitleColor:forState:</code></a> | System default |
-| |  | <a href="https://developer.apple.com/documentation/uikit/uibutton/1624018-settitle"><code>setTitle:forState:</code></a> | Black |
-| **Color** |  |  | |
-| **Typography** |  |  |  |
-| **Icon** | | | |
-| **Size** | | | |
-| **Gravity** (position relative to text label) | | | |
-| **Padding** (space between icon and text label) | | | |
+#### Container attributes
 
+&nbsp;           | Attribute             | Related method(s)                                                            | Default value
+---------------- | --------------------- | ---------------------------------------------------------------------------- | -------------
+**Color**        | `backgroundColor`  | `setBackgroundColor:forState:`<br/>`backgroundColorForState`<br/> | `nil`
+**Stroke color** |  | `setBorderColor:forState:`<br/>`borderColorForState:` | `nil`
+**Stroke width** |  | `setBorderWidth:forState:`<br/>`borderWidthForState:` | `0`
+**Ripple color** | `inkColor`   | `setInkColor`<br/>`inkColor` | Primary color at 12% opacity
+
+#### Icon attributes
+
+&nbsp;                                          | Attribute         | Related method(s)                                         | Default value
+----------------------------------------------- | ----------------- | --------------------------------------------------------- | -------------
+**Icon**                                        | `imageView`        | `setImage:forState:`<br/>`imageForState:` | `nil`
+**Color**                                       | `imageView.tintColor` | `setImageViewTintColor:forState:`<br/>`imageViewTintColorForState:` | `nil`
 
 </details>
 
