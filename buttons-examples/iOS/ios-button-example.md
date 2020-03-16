@@ -668,7 +668,22 @@ extensions. [Learn more about theming extensions](../../docs/theming.md).
 
 ### How to theme an MDCButton
 
-To make use of the theming methods shown in the examples above import the theming extensions by doing the following:
+To make use of the theming methods shown in the examples above do the following:
+
+1. Install the theming extensions with Cocoapods
+    Add the following line to your `Podfile`:
+
+    ```
+    pod MaterialComponents/Buttons+Theming
+    ```
+    
+    Run the installer:
+    
+    ```
+    pod install
+    ```
+
+1. Import the Buttons theming target
 
 <!--<div class="material-code-render" markdown="1">-->
 #### Swift
@@ -678,14 +693,12 @@ import MaterialComponents.MaterialButtons_Theming
 
 let button = MDCButton()
 ```
-
 #### Objective-C
-
 ```objc
-#import <MaterialComponents/MaterialButtons.h>
-#import <MaterialComponentsBeta/MaterialButtons+Theming.h>
+#import "MaterialButtons.h"
+#import <MaterialComponents/MaterialButtons+Theming.h>
 
 MDCButton *button = [[MDCButton alloc] init];
 ```
-<!--</div>-->
 
+From there, use the theming methods from the examples to achieve your preferred button style.
