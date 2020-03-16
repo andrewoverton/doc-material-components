@@ -26,8 +26,8 @@ There are four types of buttons:
 
 ## Using buttons
 
-All Material buttons are implemented by [MDCButton](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html), a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton).
-* [Class description](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
+All Material buttons are implemented by `MDCButton`, a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton).
+* [API documentation](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
 * [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
 
 
