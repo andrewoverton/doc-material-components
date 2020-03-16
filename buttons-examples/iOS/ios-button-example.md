@@ -33,7 +33,7 @@ All Material buttons are implemented by `MDCButton`, a subclass of [UIButton](ht
 
 ### Install `MDCButton`
 
-<details><summary><b>Expand for installation instructions for <code>MDCButtons</code></b></summary>
+<details><summary><b>Expand for installation instructions for <code>MDCButton</code></b></summary>
 
 <br>
 
@@ -52,7 +52,7 @@ All Material buttons are implemented by `MDCButton`, a subclass of [UIButton](ht
     pod install
     ```
 
-1. Import the Buttons and initialize them `MDCButtons` using `alloc`/`init`.
+1. Import the Buttons and initialize them using `alloc`/`init`.
 
 <!--<div class="material-code-render" markdown="1">-->
 #### Swift
