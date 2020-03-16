@@ -40,15 +40,16 @@ There are four types of buttons:
     ```ruby
     pod MaterialComponents/Buttons
     ```
-    Run the installer:
+            Run the installer:
     ```bash
     pod install
     ```
 1. Import `MDCButtons` and MDC button theming and initialize `MDCButtons` using `alloc`/`init`. Initialize your theme  before applying it to your button.
 
     **Note** For more information about themes, go to the [Theming page](https://material.io/develop/ios/components/theming/) for iOS.
+
 <!--<div class="material-code-render" markdown="1">-->
-     **Swift**
+#### Swift
      ```swift
      import MaterialComponents.MaterialButtons
      import MaterialComponents.MaterialButtons_Theming
