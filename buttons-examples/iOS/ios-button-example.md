@@ -52,21 +52,19 @@ There are four types of buttons:
 
 <!--<div class="material-code-render" markdown="1">-->
 #### Swift
-```
+```swift
 import MaterialComponents.MaterialButtons
 import MaterialComponents.MaterialButtons_Theming
-/*...*/
-let <local theme name> = <theme name>
+...
 let button = MDCButton()
 ```
 #### Objective-C
-     ```objc
-     #import "MaterialButtons.h"
-     #import <MaterialComponents/MaterialButtons+Theming.h>
-     /*...*/
-     <theme name> *<local theme name> = [[<theme name> alloc] init];
-     MDCButton *button = [[MDCButton alloc] init];
-     ```
+```objc
+#import "MaterialButtons.h"
+#import <MaterialComponents/MaterialButtons+Theming.h>
+...
+MDCButton *button = [[MDCButton alloc] init];
+```
 <!--</div>-->
 
     For our examples, we used the following theming values:
