@@ -26,6 +26,10 @@ There are four types of buttons:
 
 ## Using buttons
 
+All Material buttons are implemented by [MDCButton](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html), a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton).
+* [Class description](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
+* [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
+
 
 ### Install `MDCButton`
 
@@ -183,13 +187,7 @@ this day."
 
 ### Text button example
 
-Text buttons are implemented by [MDCButton](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html). To use a text button use the text button theming method on the MDCButton theming extension. For more information on theming extensions see the [Theming section](#theming). 
-
-MDCButton API and source Code:
-
-* MDCButton (a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton))
-    * [Class description](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
-    * [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
+To use a text button use the text button theming method on the MDCButton theming extension. For more information on theming extensions see the [Theming section](#theming). 
 
 <!--<div class="material-code-render" markdown="1">-->
 #### Swift
@@ -203,28 +201,6 @@ button.applyTextTheme(withScheme: containerScheme)
 ```
 <!--</div>-->
 
-<details>
-<summary><b>Adding an icon to a text button</b></summary>
-<br>
-
-To add an icon to an MDCButton styled as a text button use the familiar UIButton methods for setting an image.
-
-!["iOS text button with purple text 'Text button' and '+' icon over a white background."](assets/text-button-icon.svg)
-
-<!--<div class="material-code-render" markdown="1">-->
-#### Swift
-```swift
-button.setImage(image, for: .normal)
-```
-
-#### Objective-C
-```objc
-[button setImage:image forState: UIControlStateNormal];
-```
-<!--</div>-->
-
-</details>
-
 ### Anatomy and key properties
 
 A text button has a text label, a transparent container and an optional icon.
@@ -234,133 +210,6 @@ A text button has a text label, a transparent container and an optional icon.
 1. Text label
 1. Container
 1. Icon
-
-_**Note** A container in iOS refers to a set of components with an applied Material Theme. A container with respect to anatomy refers to the visible bounds of a component._
-
-<details>
-<summary><b>Text label</b> attributes</summary>
-<br>
-
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Text label** | <a href="https://developer.apple.com/documentation/uikit/uibutton/1623992-titlelabel"><code>titleLabel</code></a> |  | |
-| |  | <a href="https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html#/c:objc(cs)MDCButton(py)uppercaseTitle"><code>uppercaseTitle</code></a> | YES |
-| |  | <a href="https://developer.apple.com/documentation/uikit/uibutton/1623993-settitlecolor"><code>setTitleColor:forState:</code></a> | System default |
-| |  | <a href="https://developer.apple.com/documentation/uikit/uibutton/1624018-settitle"><code>setTitle:forState:</code></a> | Black |
-| **Color** |  |  | |
-| **Typography** |  |  |  |
-| **Icon** | | | |
-| **Size** | | | |
-| **Gravity** (position relative to text label) | | | |
-| **Padding** (space between icon and text label) | | | |
-
-
-</details>
-
-<details>
-<summary><b>Container</b> attributes</summary>
-<br>
-
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Color** |  |  | |
-| **Stroke color** | |  | |
-| **Stroke width** |  |  |  |
-| **Shape** |  | | |
-| **Elevation** | | | |
-| **Ripple color** | | | | 
-</details>
-
-## Text button
-<!-- Extracted from docs/text-button.md -->
-
-<img src="docs/assets/text.gif" alt="An animation showing a Material Design text button." width="128">
-
-[Text buttons](https://material.io/components/buttons/#text-button) are typically used for less-pronounced actions, including those located in dialogs and cards. In cards, text buttons help maintain an emphasis on card content.
-
-### Text button example
-
-Text buttons are implemented by [MDCButton](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html). To use a text button use the text button theming method on the MDCButton theming extension. For more information on theming extensions see the [Theming section](#theming). 
-
-<!--<div class="material-code-render" markdown="1">-->
-#### Swift
-```swift
-button.applyTextTheme(withScheme: containerScheme)
-```
-
-#### Objective-C
-
-```objc
-[self.button applyTextThemeWithScheme:self.containerScheme];
-```
-<!--</div>-->
-
-## Text button
-
-[Text buttons](https://material.io/components/buttons/#text-button) are typically used for less-pronounced actions, including those located in dialogs and cards. In cards, text buttons help maintain an emphasis on card content.
-
-
-### Text button example
-
-Source Code APIs:
-
-* MDCButton  (a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton))
-    * [Class description](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
-    * [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
-* [Themes class description](https://material.io/develop/ios/components/theming/) <!-- This is slated to be deprected, though the examples from https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html appear to use this class -->
-
-The following example shows a text button with a text label that uses Material Theming as its `ContainerScheme`.
-
-For more information on Material Theming for iOS, go to the [iOS Material Theming page](../theming).
-
-!["iOS Text button with purple text 'Text' over a white background."](assets/text-button.svg)
-<!--<div class="material-code-render" markdown="1">-->
-**Swift**
-
-```swift
-let button = MDCButton()
-button.applyTextTheme(withScheme: MyMaterialTheme)
-```
-
-**Objective-C**
-
-```ObjC
-MDCButton *button = [[MDCButton alloc] init];
-[button applyTextThemeWithScheme:MyMaterialTheme];
-```
-<!--</div>-->
-
-<details>
-<summary><b>Adding an icon to a text button</b></summary>
-<br>
-
-The following example shows a text button with an icon.
-
-!["iOS text button with purple text 'Text button' and '+' icon over a white background."](assets/text-button-icon.svg)
-
-<!--<div class="material-code-render" markdown="1">-->
-```swift
-
-```
-
-
-```objc
-
-```
-<!--</div>-->
-
-</details>
-
-### Anatomy and key properties
-
-A text button has a text label, a transparent container and an optional icon.
-
-![Text button anatomy diagram](assets/text_button_anatomy.png)
-
-1. Text label
-1. Container
-1. Icon
-
 
 #### Text label attributes
 
@@ -385,24 +234,6 @@ A text button has a text label, a transparent container and an optional icon.
 ----------------------------------------------- | ----------------- | --------------------------------------------------------- | -------------
 **Icon**                                        | `imageView`        | `setImage:forState:`<br/>`imageForState:` | `nil`
 **Color**                                       | `imageView.tintColor` | `setImageViewTintColor:forState:`<br/>`imageViewTintColorForState:` | `nil`
-
-</details>
-
-<details>
-<summary><b>Container</b> attributes</summary>
-<br>
-
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Color** |  |  | |
-| **Stroke color** | |  | |
-| **Stroke width** |  |  |  |
-| **Shape** |  | | |
-| **Elevation** | | | |
-| **Ripple color** | | | | 
-</details>
-
-
 
 ## Outlined button
 
