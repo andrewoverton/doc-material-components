@@ -37,20 +37,24 @@ There are four types of buttons:
 
 1. Install `MDCButtons` with Cocoapods
     Add the following line to your `Podfile`:
+
     ```ruby
     pod MaterialComponents/Buttons
     ```
-            Run the installer:
+    
+    Run the installer:
+    
     ```bash
     pod install
     ```
-1. Import `MDCButtons` and MDC button theming and initialize `MDCButtons` using `alloc`/`init`. Initialize your theme  before applying it to your button.
+
+1. Import `MDCButtons` and MDC button theming and initialize `MDCButtons` using `alloc`/`init`. Initialize your theme before applying it to your button.
 
     **Note** For more information about themes, go to the [Theming page](https://material.io/develop/ios/components/theming/) for iOS.
 
 <!--<div class="material-code-render" markdown="1">-->
 #### Swift
-     ```swift
+     ```
      import MaterialComponents.MaterialButtons
      import MaterialComponents.MaterialButtons_Theming
      /*...*/
@@ -60,7 +64,7 @@ There are four types of buttons:
      **Objective-C**
      ```objc
      #import "MaterialButtons.h"
-     #import <MaterialComponentsBeta/MaterialButtons+Theming.h>
+     #import <MaterialComponents/MaterialButtons+Theming.h>
      /*...*/
      <theme name> *<local theme name> = [[<theme name> alloc] init];
      MDCButton *button = [[MDCButton alloc] init];
