@@ -23,11 +23,11 @@ api_doc_root:
 Before using the `MDCCards` API to implement its types, you must install `MDCCards`. In you source files import the component and then apply your theme:
 
 1. Use CocoaPods to install `MDCCards`
-    1. Add the following line to your `Podfile`:
+  1. Add the following line to your `Podfile`:
 	```pod
 	pod 'MaterialComponents/Cards'
 	```
-    1. Run the installer:
+  1. Run the installer:
 	```bash
 	pod install
 	```
