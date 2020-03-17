@@ -95,28 +95,34 @@ articleImageView.isAccessibilityElement = true
   articleImageView.accessibilityLabel = "Event or scene description"
 ```
 <!--</div>-->
+
 #### Objective-C
 ```objc
 articleImageView.isAccessibilityElement = YES;
   articleImageView.accessibilityLabel = @"Event or scene description";
 ```
 <!--</div>-->
-    * The following examples apply to images that have a rating value:
+
+ * The following examples apply to images that have a rating value:
+
+#### Swift
 <!--<div class="material-code-render" markdown="1">-->
-	  **Swift**
-	 ```
-	  ratingView.isAccessibilityElement = true
-	    ratingView.accessibilityLabel = "Average customer rating, out of " + 
-	      "\(MDCProductRating.maximumValue) stars"
-	    ratingView.accessibilityValue = (String)product.averageRating
-	  ```
-	  ***Objective-C**
-	  ```Objc
-	  ratingView.isAccessibilityElement = YES;
-	    ratingView.accessibilityLabel = [NSString stringWithFormat:@"Average customer" +
-	      " rating, out of %d stars", MDCProductRating.maximumValue];
-	    ratingView.accessibilityValue = @(product.averageRating).stringValue;
-	  ```
+```
+ratingView.isAccessibilityElement = true
+  ratingView.accessibilityLabel = "Average customer rating, out of " + 
+    "\(MDCProductRating.maximumValue) stars"
+  ratingView.accessibilityValue = (String)product.averageRating
+```
+<!--</div>-->
+
+#### Objective-C
+<!--<div class="material-code-render" markdown="1">-->
+```Objc
+ratingView.isAccessibilityElement = YES;
+  ratingView.accessibilityLabel = [NSString stringWithFormat:@"Average customer" +
+    " rating, out of %d stars", MDCProductRating.maximumValue];
+  ratingView.accessibilityValue = @(product.averageRating).stringValue;
+```
 <!--</div>-->
 
 ## Card
