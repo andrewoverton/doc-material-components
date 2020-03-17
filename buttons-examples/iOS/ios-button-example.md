@@ -30,7 +30,6 @@ All Material buttons are implemented by `MDCButton`, a subclass of [UIButton](ht
 * [API documentation](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
 * [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
 
-
 ### Install `MDCButton`
 
 <details><summary><b>Expand for installation instructions for <code>MDCButton</code></b></summary>
@@ -71,7 +70,6 @@ MDCButton *button = [[MDCButton alloc] init];
 ```
 
 </details>
-
 
 ### Making Buttons accessible
 
@@ -374,12 +372,10 @@ The iOS icon toggle button is only available for use with the iOS [card](../Card
 
 ## Theming
 
-<!-- Extracted from docs/theming.md -->
-
 You can theme an MDCButton to match any of the Material Button styles using theming
 extensions. [Learn more about theming extensions](../../docs/theming.md).
 
-### How to theme an MDCButton
+### Buttons theming example
 
 To make use of the theming methods shown in the examples above do the following:
 
@@ -409,7 +405,7 @@ let button = MDCButton()
 #### Objective-C
 ```objc
 #import "MaterialButtons.h"
-#import <MaterialComponents/MaterialButtons+Theming.h>
+#import "MaterialButtons+Theming.h"
 
 MDCButton *button = [[MDCButton alloc] init];
 ```
