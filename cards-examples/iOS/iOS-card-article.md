@@ -61,25 +61,26 @@ MDCCard *card = [[MDCCard alloc] init];
 
 ### Making Cards accessible
 
-    To help make your card as usable to as many users as possible, you need to set both `isAccessibilityElement` and set an appropriate [accessibilityLabel](https://developer.apple.com/documentation/uikit/uiaccessibilityelement/1619577-accessibilitylabel).
+To help make your card as usable to as many users as possible, you need to set both `isAccessibilityElement` and set an appropriate [accessibilityLabel](https://developer.apple.com/documentation/uikit/uiaccessibilityelement/1619577-accessibilitylabel).
 
-    * The following examples set accessibility labels for card collections:
+* The following examples set accessibility labels for card collections:
+
 <br>
 <!--<div class="material-code-render" markdown="1">-->
-        **Swift**
-        ````
-        card.isAccessibilityElement = true
-        card.accessibilityLabel = "Location \(userLocation.name) is popular with users " +
-          "who enjoy \(userLocation.popularActivityMatchingUserProfile(userProfile))"
-        ```
-        **Objective-C**
-        ```objc
-        card.isAccessibilityElement = YES;
-          card.accessibilityLabel = [NSString 
-            stringWithFormat:@"Location %@ is popular with users who enjoy %@",  
-            userLocation.name, 
-            userLocation.popularActivityMatchingUserProfile(userProfile)];
-        ```
+#### Swift
+````
+card.isAccessibilityElement = true
+card.accessibilityLabel = "Location \(userLocation.name) is popular with users " +
+  "who enjoy \(userLocation.popularActivityMatchingUserProfile(userProfile))"
+```
+**Objective-C**
+```objc
+card.isAccessibilityElement = YES;
+  card.accessibilityLabel = [NSString 
+    stringWithFormat:@"Location %@ is popular with users who enjoy %@",  
+    userLocation.name, 
+    userLocation.popularActivityMatchingUserProfile(userProfile)];
+```
 <!--</div>-->
     * The following examples set accessiblity labels for any card images:
 <!--<div class="material-code-render" markdown="1">-->
