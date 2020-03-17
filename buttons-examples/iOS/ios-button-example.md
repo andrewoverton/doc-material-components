@@ -216,14 +216,14 @@ A text button has a text label, a transparent container and an optional icon.
 &nbsp;         | Attribute                | Related method(s)                 | Default value
 -------------- | ------------------------ | --------------------------------- | -------------
 **Text label** | `titleLabel` | `setTitle:forState:`<br/>`titleForState:` | `nil`
-**Color**      | `titleLabel.textColor` | `setTitleColor:forState:`<br/>`titleColorForState:` | `nil`
-**Typography** | `titleLabel.font` | `setFont:` and `font` on `titleLabel` | `button`
+**Color**      | `titleLabel.textColor` | `setTitleColor:forState:`<br/>`titleColorForState:` | Primary color
+**Typography** | `titleLabel.font` | `setFont:` and `font` on `titleLabel` | Button
 
 #### Container attributes
 
 &nbsp;           | Attribute             | Related method(s)                                                            | Default value
 ---------------- | --------------------- | ---------------------------------------------------------------------------- | -------------
-**Color**        | `backgroundColor`  | `setBackgroundColor:forState:`<br/>`backgroundColorForState`<br/> | `nil`
+**Color**        | `backgroundColor`  | `setBackgroundColor:forState:`<br/>`backgroundColorForState`<br/> | `UIColor.clearColor`
 **Stroke color** |  | `setBorderColor:forState:`<br/>`borderColorForState:` | `nil`
 **Stroke width** |  | `setBorderWidth:forState:`<br/>`borderWidthForState:` | `0`
 **Ripple color** | `inkColor`   | `setInkColor`<br/>`inkColor` | Primary color at 12% opacity
@@ -237,155 +237,63 @@ A text button has a text label, a transparent container and an optional icon.
 
 ## Outlined button
 
+<img src="assets/outlined.gif" alt="An animation showing a Material Design outlined button." width="115">
+
 [Outlined buttons](https://material.io/components/buttons/#outlined-button) are medium-emphasis buttons. They contain actions that are important, but aren’t the primary action in an app.
 
-### Outlined button example without container schemes
+### Outlined button example
 
-You can apply a theme to the button using `Themes`.
-
-Source Code APIs:
-
-* MDCButton  (a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton))
-    * [Class description](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
-    * [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
-* [Themes class description](https://material.io/develop/ios/components/theming/)  <!-- This is slated to be deprected, though the examples from https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html appear to use this class -->
-
-The following example shows an outlined button with a text label and stroked container that uses Material Theming as its `ContainerScheme`.
-
-For more information on Material Theming for iOS, go to the [iOS Material Theming page](../theming).
-    
-
-!["Outlined button with purple text surrounded by a gray outline"](assets/outlined-button.svg)
+To achieve an outlined button use the outlined button theming method on the MDCButton theming extension. To access the theming extension see the [Theming section](#theming). 
 
 <!--<div class="material-code-render" markdown="1">-->
-**Swift**
+#### Swift
 ```swift
-let button = MDCButton()
-button.applyOutlinedTheme(withScheme: MyMaterialTheme)
+button.applyOutlinedTheme(withScheme: containerScheme)
 ```
-**Objective-C**
-```objc
-MDCButton *button = [[MDCButton alloc] init];
 
-[self.button applyOutlinedThemeWithScheme:self.MyMaterialTheme];
+#### Objective-C
+
+```objc
+[self.button applyOutlinedThemeWithScheme:self.containerScheme];
 ```
 <!--</div>-->
 
-<details>
-<summary><b>Adding an icon to an outlined button</b></summary>
-<br>
+### Anatomy and Key properties
 
-The following example shows an outlined button with an icon.
+An outlined button has a text label, a container, and an optional icon.
 
-!["iOS outlined button with purple text 'Outlined' and '+' icon over a white background."](assets/outlined-button-icon.svg)
+![Outlined button anatomy diagram](docs/assets/outlined-button-diagram.png)
 
-<!--<div class="material-code-render" markdown="1">-->
-```swift
+A. Text label<br>
+B. Container<br>
+C. Icon<br>
 
-```
+#### Text label attributes
 
+&nbsp;         | Attribute                | Related method(s)                 | Default value
+-------------- | ------------------------ | --------------------------------- | -------------
+**Text label** | `titleLabel` | `setTitle:forState:`<br/>`titleForState:` | `nil`
+**Color**      | `titleLabel.textColor` | `setTitleColor:forState:`<br/>`titleColorForState:` | Primary color
+**Typography** | `titleLabel.font` | `setFont:` and `font` on `titleLabel` | Button
 
-```objc
+#### Container attributes
 
-```
-<!--</div>-->
+&nbsp;           | Attribute             | Related method(s)                                                            | Default value
+---------------- | --------------------- | ---------------------------------------------------------------------------- | -------------
+**Color**        | `backgroundColor`  | `setBackgroundColor:forState:`<br/>`backgroundColorForState`<br/> | `UIColor.clearColor`
+**Stroke color** |  | `setBorderColor:forState:`<br/>`borderColorForState:` | On surface color at 12% opacity
+**Stroke width** |  | `setBorderWidth:forState:`<br/>`borderWidthForState:` | 1
+**Ripple color** | `inkColor`   | `setInkColor`<br/>`inkColor` | Primary color at 12% opacity
 
-</details>
+#### Icon attributes
 
+&nbsp;                                          | Attribute         | Related method(s)                                         | Default value
+----------------------------------------------- | ----------------- | --------------------------------------------------------- | -------------
+**Icon**                                        | `imageView`        | `setImage:forState:`<br/>`imageForState:` | `nil`
+**Color**                                       | `imageView.tintColor` | `setImageViewTintColor:forState:`<br/>`imageViewTintColorForState:` | `nil`
 
-### Outlined button example with container schemes
-
-You can apply a theme to the button that applies to all elements in a container using `MDCContainerScheme`.
-
-Source Code APIs:
-
-* MDCButton  (a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton))
-    * [Class description](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
-    * [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
-* [Themes class description](https://material.io/develop/ios/components/theming/)  <!-- This is slated to be deprected, though the examples from https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html appear to use this class -->
-* [MDCContainerScheme class description](https://github.com/material-components/material-components-ios/tree/stable/components/schemes/Container)
-
-!["Outlined button example in Android with purple text surrounded by a gray outline"](assets/outlined-button.svg)
-
-<!--<div class="material-code-render" markdown="1">-->
-**Swift**
-```swift
-let button = MDCButton()
-button.applyTextTheme(withScheme: MyMaterialTheme)
-```
-**Objective-C**
-```objc
-MDCButton *button = [[MDCButton alloc] init];
-[self.button applyTextThemeWithScheme:self.MyMaterialTheme];
-```
-<!--</div>-->
-
-<details>
-<summary><b>Adding an icon to a contained button</b></summary>
-<br>
-
-The following example shows a contained button with an icon.
-
-!["iOS contained button with purple text 'Contained' and '+' icon over a white background."](assets/contained-button-icon.svg)
-
-<!--<div class="material-code-render" markdown="1">-->
-```swift
-
-```
-
-
-```objc
-
-```
-<!--</div>-->
-
-</details>
-
-
-### Anatomy and key properties
-
-An outline button has text, a container, and an optional icon.
-
-![Outlined button anatomy diagram](assets/outlined_button_anatomy.png)
-
-1. Text label
-1. Container
-1. Icon
-
-_**Note** A container in iOS refers to a set of components with an applied Material Theme. A container with respect to anatomy refers to the visible bounds of a component._
-
-<details>
-<summary><b>Text label</b> and <b>Icon</b> attributes</summary>
-<br>
-
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Text label** | | | |
-| **Color** |  | | |
-| **Typography** | | | |
-| **Icon** | | | |
-| **Size** | | | |
-| **Gravity** (position relative to text label) | | | |
-| **Padding** (space between icon and text label) | | | |
-
-
-</details>
-
-<details>
-<summary><b>Container</b> attributes</summary>
-<br>
-
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Color** | | | |
-| **Stroke color** | | | |
-| **Stroke width** || | |
-| **Shape** | | | |
-| **Elevation** | | | |
-| **Ripple color** | | | |
-
-</details>
-
+We recommend using [Material Theming](https://material.io/components/\Buttons/#theming) to apply your customizations across your application. For a full list of component properties, go to the API docs:"
+List the links to each API
 
 ## Contained button
 
@@ -393,80 +301,33 @@ _**Note** A container in iOS refers to a set of components with an applied Mater
 
 ### Contained button example
 
-Source Code APIs:
+To achieve a contained button use the contained button theming method on the MDCButton theming extension. To access the theming extension see the [Theming section](#theming).
 
-* MDCButton  (a subclass of [UIButton](https://developer.apple.com/documentation/uikit/uibutton))
-    * [Class description](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html)
-    * [GitHub source](https://github.com/material-components/material-components-ios/blob/develop/components/Buttons/src/MDCButton.h)
-* [Themes class description](https://material.io/develop/ios/components/theming/)  <!-- This is slated to be deprected, though the examples from https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html appear to use this class -->
-
-The following example shows a contained button with a text label and a filled container that uses Material Theming as its `ContainerScheme`.
-
-For more information on Material Theming for iOS, go to the [iOS Material Theming page](../theming).
-.
 
 !["Contained button example with white text 'Text' on a purple background."](assets/contained-button.svg)
 
 <!--<div class="material-code-render" markdown="1">-->
-**Swift**
+#### Swift
 ```swift
-let button = MDCButton()
-button.applyContainedTheme(withScheme: MyMaterialTheme)
+button.applyContainedTheme(withScheme: containerScheme)
 ```
-**Objective-C**
+
+#### Objective-C
+
 ```objc
-MDCButton *button = [[MDCButton alloc] init];
-[self.button applyContainedThemeWithScheme:self.MyMaterialTheme];
+[self.button applyContainedThemeWithScheme:self.containerScheme];
 ```
-
 <!--</div>-->
-
 
 ### Anatomy and key attributes
 
-A contained button has text, a container, and an optional icon.
+![Contained button anatomy diagram](docs/assets/contained-button-diagram.png)
 
-
-_**Note** A container in iOS refers to a set of components with an applied Material Theme. A container with respect to anatomy refers to the visible bounds of a component._
+A. Text label<br>
+B. Container<br>
+C. Icon<br>
 
 ![Contained button anatomy diagram](assets/contained_button_anatomy.png)
-
-1. Text label
-1. Container
-1. Icon
-
-<details>
-<summary><b>Text label</b> and <b>Icon</b> attributes</summary>
-<br>
-
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Text label** | | | |
-| **Color** |  | | |
-| **Typography** | | | |
-| **Color** || | |
-| **Size** | | | |
-| **Gravity** (position relative to text label) | | | |
-| **Padding** (space between icon and text label) | | | |
-
-
-</details>
-
-<details>
-<summary><b>Container</b> attributes</summary>
-<br>
-
-|  | Attribute | Related method(s) | Default value |
-| --- | --- | --- | --- |
-| **Color** | | | |
-| **Stroke color** | | | |
-| **Stroke width** || | |
-| **Shape** | | | |
-| **Elevation** | | | |
-| **Ripple color** | | | |
-
-</details>
-
 
 
 ## Toggle button
@@ -498,8 +359,7 @@ The iOS icon toggle button is only available for use with the iOS [card](../Card
 
 <!-- Extracted from docs/theming.md -->
 
-You can theme an MDCButton to match a
-[Material Design button style](https://material.io/design/components/buttons.html) using theming
+You can theme an MDCButton to match any of the Material Button styles using theming
 extensions. [Learn more about theming extensions](../../docs/theming.md).
 
 ### How to theme an MDCButton
