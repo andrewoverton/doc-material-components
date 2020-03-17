@@ -292,19 +292,13 @@ C. Icon<br>
 **Icon**                                        | `imageView`        | `setImage:forState:`<br/>`imageForState:` | `nil`
 **Color**                                       | `imageView.tintColor` | `setImageViewTintColor:forState:`<br/>`imageViewTintColorForState:` | `nil`
 
-We recommend using [Material Theming](https://material.io/components/\Buttons/#theming) to apply your customizations across your application. For a full list of component properties, go to the API docs:"
-List the links to each API
-
 ## Contained button
 
 [Contained buttons](https://material.io/components/buttons/#contained-button) are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.
 
 ### Contained button example
 
-To achieve a contained button use the contained button theming method on the MDCButton theming extension. To access the theming extension see the [Theming section](#theming).
-
-
-!["Contained button example with white text 'Text' on a purple background."](assets/contained-button.svg)
+Contained buttons are implemented by [MDCButton](https://material.io/develop/ios/components/buttons/api-docs/Classes/MDCButton.html). To achieve a contained button use the contained button theming method on the MDCButton theming extension. To access the theming extension see the [Theming section](#theming). 
 
 <!--<div class="material-code-render" markdown="1">-->
 #### Swift
@@ -319,16 +313,39 @@ button.applyContainedTheme(withScheme: containerScheme)
 ```
 <!--</div>-->
 
-### Anatomy and key attributes
+### Anatomy and Key properties
 
-![Contained button anatomy diagram](docs/assets/contained-button-diagram.png)
+An outlined button has a text label, a container, and an optional icon.
+
+![Outlined button anatomy diagram](docs/assets/outlined-button-diagram.png)
 
 A. Text label<br>
 B. Container<br>
 C. Icon<br>
 
-![Contained button anatomy diagram](assets/contained_button_anatomy.png)
+#### Text label attributes
 
+&nbsp;         | Attribute                | Related method(s)                 | Default value
+-------------- | ------------------------ | --------------------------------- | -------------
+**Text label** | `titleLabel` | `setTitle:forState:`<br/>`titleForState:` | `nil`
+**Color**      | `titleLabel.textColor` | `setTitleColor:forState:`<br/>`titleColorForState:` | On primary color
+**Typography** | `titleLabel.font` | `setFont:` and `font` on `titleLabel` | Button
+
+#### Container attributes
+
+&nbsp;           | Attribute             | Related method(s)                                                            | Default value
+---------------- | --------------------- | ---------------------------------------------------------------------------- | -------------
+**Color**        | `backgroundColor`  | `setBackgroundColor:forState:`<br/>`backgroundColorForState`<br/> | Primary color
+**Stroke color** |  | `setBorderColor:forState:`<br/>`borderColorForState:` | `nil`
+**Stroke width** |  | `setBorderWidth:forState:`<br/>`borderWidthForState:` | `nil`
+**Ripple color** | `inkColor`   | `setInkColor`<br/>`inkColor` | On primary color at 12% opacity
+
+#### Icon attributes
+
+&nbsp;                                          | Attribute         | Related method(s)                                         | Default value
+----------------------------------------------- | ----------------- | --------------------------------------------------------- | -------------
+**Icon**                                        | `imageView`        | `setImage:forState:`<br/>`imageForState:` | `nil`
+**Color**                                       | `imageView.tintColor` | `setImageViewTintColor:forState:`<br/>`imageViewTintColorForState:` | `nil`
 
 ## Toggle button
 
