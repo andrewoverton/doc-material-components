@@ -66,34 +66,40 @@ To help make your card as usable to as many users as possible, you need to set b
 * The following examples set accessibility labels for card collections:
 
 <br>
-<!--<div class="material-code-render" markdown="1">-->
+
 #### Swift
-````
+<!--<div class="material-code-render" markdown="1">-->
+```
 card.isAccessibilityElement = true
 card.accessibilityLabel = "Location \(userLocation.name) is popular with users " +
   "who enjoy \(userLocation.popularActivityMatchingUserProfile(userProfile))"
 ```
-**Objective-C**
+<!--</div>-->
+#### Objective-C
+<!--<div class="material-code-render" markdown="1">-->
 ```objc
+NSString *name = user.name;
+NSString *location = [userLocation popularActivityMatchingUserProfile:user];
 card.isAccessibilityElement = YES;
-  card.accessibilityLabel = [NSString 
-    stringWithFormat:@"Location %@ is popular with users who enjoy %@",  
-    userLocation.name, 
-    userLocation.popularActivityMatchingUserProfile(userProfile)];
+card.accessibilityLabel =
+    [NSString stringWithFormat:@"Location %@ is popular with users who enjoy %@", name, location];
 ```
 <!--</div>-->
-    * The following examples set accessiblity labels for any card images:
+
+* The following examples set accessiblity labels for any card images:
+
+#### Swift
 <!--<div class="material-code-render" markdown="1">-->
-          **Swift**
-	  ```
-	  articleImageView.isAccessibilityElement = true
-	    articleImageView.accessibilityLabel = "Event or scene description"
-	  ```
-	  **Objective-C**
-	  ```objc
-	  articleImageView.isAccessibilityElement = YES;
-	    articleImageView.accessibilityLabel = @"Event or scene description";
-	  ```
+```swift
+articleImageView.isAccessibilityElement = true
+  articleImageView.accessibilityLabel = "Event or scene description"
+```
+<!--</div>-->
+#### Objective-C
+```objc
+articleImageView.isAccessibilityElement = YES;
+  articleImageView.accessibilityLabel = @"Event or scene description";
+```
 <!--</div>-->
     * The following examples apply to images that have a rating value:
 <!--<div class="material-code-render" markdown="1">-->
