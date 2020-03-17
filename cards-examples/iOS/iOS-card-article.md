@@ -20,31 +20,46 @@ api_doc_root:
 
 ### Install `MDCCards`
 
-Before using the `MDCCards` API to implement its types, you must install `MDCCards`. In you source files import the component and then apply your theme:
+<details><summary><b>Expand for installation instructions for <code>MDCButton</code></b></summary>
 
-1. Use CocoaPods to install `MDCCards`
-    1. Add the following line to your `Podfile`:
-	  ```pod
-	  pod 'MaterialComponents/Cards'
-	  ```
-    1. Run the installer:
-	  ```bash
-	  pod install
-	  ```
-1. Import `MDCCards` and MDC card theming and initialize `MDCCards` using `alloc/init`. Initialize your theme before applying it to your button.
+<br>
 
-  **Note** For more information about themes, go to the Theming page for iOS.
+`MDCCards` is used to implement all four Material Buttons. In order to use `MDCCards`, do the following:
+
+1. Install with Cocoapods
+    Add the following line to your `Podfile`:
+
+    ```
+    pod 'MaterialComponents/Cards'
+    ```
+    
+    Run the installer:
+    
+    ```
+    pod install
+    ```
+
+1. Import the Cards and initialize them using `alloc`/`init`.
 
 <!--<div class="material-code-render" markdown="1">-->
-  ```swift
-  import MaterialComponents.MaterialCards
-  ```
+#### Swift
+```swift
+import MaterialComponents.MaterialCards
+import MaterialComponents.MaterialCards_Theming
 
-  ```objc
-  #import "MaterialCards.h"
-  ```
-<!--</div>-->
-1 Apply accessibility settings
+let card = MDCCard()
+```
+#### Objective-C
+```objc
+#import "MaterialCards.h"
+#import <MaterialComponents/MaterialCards+Theming.h>
+
+MDCCard *card = [[MDCCard alloc] init];
+```
+
+</details>
+
+### Making Cards accessible
 
     To help make your card as usable to as many users as possible, you need to set both `isAccessibilityElement` and set an appropriate [accessibilityLabel](https://developer.apple.com/documentation/uikit/uiaccessibilityelement/1619577-accessibilitylabel).
 
