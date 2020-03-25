@@ -178,7 +178,7 @@ let fab = MDCFloatingButton(shape: `default`)
 
 ### Anatomy and key properties
 
-<img src="assets/FAB-anatomy.png" alt="Regular FAB anatomy" width="128">
+![FAB anatomy diagram](assets/FAB-anatomy.png)
 
 A regular FAB has a container and an icon.
 
